@@ -30,7 +30,55 @@ nhat.print();
 console.log(tham.class);
 console.log(tri.class);
 console.log(nhat.class);
+
 */
+//	Create an object with Object
+/*
+
+*/
+
+// var cat = Object.create(Object.prototype, {
+
+// 	name: {
+// 		value: 'Fluffy',
+// 		enumerable: true,
+// 		writable: true,
+// 		configurable: true
+// 	},
+// 	age: {
+// 		value: '18',
+// 		enumerable: true,
+// 		writable: true,
+// 		configurable: true
+// 	}
+// });
+
+// console.log(cat);
+
+
+//	get; set; in javascript
+
+// var person = {
+// 	name: {
+// 		first: "Tham",
+// 		last: "David"
+// 	},
+// 	age: 22
+// };
+
+// Object.defineProperty(person, "fullname", {
+// 	get: function(){
+// 		return this.name.first + " " + this.name.last;
+// 	},
+// 	set: function(value){
+// 		var nameParts = value.split(' ');
+// 		this.name.first = nameParts[0];
+// 		this.name.last = nameParts[1];
+// 	}
+
+// });
+// person.fullname = "Tham Davies";
+// console.log(person);
 
 // Callback function
 
@@ -172,77 +220,77 @@ askMeAJob('teacher')("Tham");
 
 /// Quiz Game
 
-(function () {
-	var Question = function (question, answers, correct) {
-		this.question = question;
-		this.answers = answers;
-		this.correct = correct;
-	}
+// (function () {
+// 	var Question = function (question, answers, correct) {
+// 		this.question = question;
+// 		this.answers = answers;
+// 		this.correct = correct;
+// 	}
 
-	Question.prototype.displayQuestion = function () {
-		console.log(this.question);
+// 	Question.prototype.displayQuestion = function () {
+// 		console.log(this.question);
 
-		for (let index = 0; index < this.answers.length; index++) {
-			console.log(`${index}: ${this.answers[index]}`);
-		}
-	}
+// 		for (let index = 0; index < this.answers.length; index++) {
+// 			console.log(`${index}: ${this.answers[index]}`);
+// 		}
+// 	}
 
-	Question.prototype.displayScore = function (sc) {
-		console.log("Your current score is " + sc);
-		console.log("==========================");
-	}
+// 	Question.prototype.displayScore = function (sc) {
+// 		console.log("Your current score is " + sc);
+// 		console.log("==========================");
+// 	}
 
-	Question.prototype.checkAnswer = function (ans, callback) {
-		var sc;
-		if (ans === this.correct) {
-			console.log('Correct answer!');
-			sc = callback(true);
+// 	Question.prototype.checkAnswer = function (ans, callback) {
+// 		var sc;
+// 		if (ans === this.correct) {
+// 			console.log('Correct answer!');
+// 			sc = callback(true);
 
-		} else {
-			console.log('Wrong answer. Try again :)');
-			sc = callback(false);
-		}
-		this.displayScore(sc);
-	}
+// 		} else {
+// 			console.log('Wrong answer. Try again :)');
+// 			sc = callback(false);
+// 		}
+// 		this.displayScore(sc);
+// 	}
 
-	var q1 = new Question('Is JavaScript the coolest programming language in the world?',
-		['Yes', 'No'],
-		0);
+// 	var q1 = new Question('Is JavaScript the coolest programming language in the world?',
+// 		['Yes', 'No'],
+// 		0);
 
-	var q2 = new Question('What is the name of this course\'s teacher?',
-		['John', 'Micheal', 'Jonas'],
-		2);
+// 	var q2 = new Question('What is the name of this course\'s teacher?',
+// 		['John', 'Micheal', 'Jonas'],
+// 		2);
 
-	var q3 = new Question('What does best describe coding?',
-		['Boring', 'Hard', 'Fun', 'Tediuos'],
-		2);
+// 	var q3 = new Question('What does best describe coding?',
+// 		['Boring', 'Hard', 'Fun', 'Tediuos'],
+// 		2);
 
-	var questions = [q1, q2, q3];
+// 	var questions = [q1, q2, q3];
 
-	function score() {
-		var sc = 0;
-		return function (correct) {
-			if (correct) sc++;
-			return sc
-		}
-	}
+// 	function score() {
+// 		var sc = 0;
+// 		return function (correct) {
+// 			if (correct) sc++;
+// 			return sc
+// 		}
+// 	}
 
-	var keepScore = score();
+// 	var keepScore = score();
 
-	function nextQuestion() {
-		var n = Math.floor(Math.random() * questions.length);
+// 	function nextQuestion() {
+// 		var n = Math.floor(Math.random() * questions.length);
 
-		questions[n].displayQuestion();
-		var answer = prompt('Please select the correct answer.');
+// 		questions[n].displayQuestion();
+// 		var answer = prompt('Please select the correct answer.');
 
-		if (answer !== 'exit') {
-			questions[n].checkAnswer(parseInt(answer), keepScore);
-			nextQuestion();
-		}
-		else
-			console.log("You've scored " + keepScore(false) + " point(s). GAME EXITED!!!");
-	}
+// 		if (answer !== 'exit') {
+// 			questions[n].checkAnswer(parseInt(answer), keepScore);
+// 			nextQuestion();
+// 		}
+// 		else
+// 			console.log("You've scored " + keepScore(false) + " point(s). GAME EXITED!!!");
+// 	}
 
-	nextQuestion();
+// 	nextQuestion();
 
-})();
+// })();
